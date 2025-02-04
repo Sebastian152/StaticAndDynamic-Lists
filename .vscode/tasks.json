@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/*.cpp",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compiles all .cpp files in the project."
+        },
+        {
+            "label": "Run Executable",
+            "type": "shell",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "Runs the file generated."
+        },
+        {
+            "label": "Build and Run All",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Build and Run",
+                "Run Executable"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "none"
+            },
+            "detail": "Compiles and run the project."
+        }
+    ]
+}
